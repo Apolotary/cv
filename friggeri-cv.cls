@@ -3,7 +3,7 @@
 
 \DeclareOption{print}{\def\@cv@print{}}
 \DeclareOption*{%
-  \PassOptionsToClass{\CurrentOption}{article}%
+  \PassOptionsToClass{\CurrentOption}{print}%
 }
 \ProcessOptions\relax
 \LoadClass{article}
@@ -28,6 +28,9 @@
 \definecolor{blue}{HTML}{6CE0F1}
 
 \ifdefined\@cv@print
+  \colorlet{fillheader}{gray}
+  \colorlet{header}{white}
+\else
   \colorlet{green}{gray}
   \colorlet{orange}{gray}
   \colorlet{purple}{gray}
@@ -35,9 +38,6 @@
   \colorlet{blue}{gray}
   \colorlet{fillheader}{white}
   \colorlet{header}{gray}
-\else
-  \colorlet{fillheader}{gray}
-  \colorlet{header}{white}
 \fi
 \colorlet{textcolor}{gray}
 \colorlet{headercolor}{gray}
@@ -56,7 +56,7 @@
 \defaultfontfeatures{Mapping=tex-text}
 \setmainfont[Mapping=tex-text, Color=textcolor]{Helvetica Neue Light}
 
-\setmathfont{XITS Math}
+\setmathfont{xits-math.otf}
 
 %%%%%%%%%%
 % Header %
